@@ -22,6 +22,6 @@ jobs:
             -   uses: mshick/add-pr-comment@v1
                 with:
                     message: |
-                        **Hello** [link](https://github.com/martinvy/python-utils) secret: {{ secrets.TEST_SECRET }}
+                        **Hello** [link](https://github.com/martinvy/python-utils) secret: ${{ secrets.TEST_SECRET }}
                     repo-token: ${{ secrets.GITHUB_TOKEN }}
                     repo-token-user-login: 'github-actions[bot]'
