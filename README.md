@@ -7,3 +7,4 @@ Configure `amqp_url` and `amqp_exchange` to log messages from file via amqp prot
 
 
 Test
+Test
