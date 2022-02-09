@@ -19,3 +19,8 @@ jobs:
                 with:
                     branch: staging
                     title: Staging -> Master
+            -   uses: mshick/add-pr-comment@v1
+                with:
+                    message: |
+                        **Hello** [link](https://github.com/martinvy/python-utils)
+                    repo-token-user-login: 'github-actions[bot]'
