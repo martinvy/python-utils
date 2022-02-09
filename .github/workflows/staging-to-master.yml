@@ -23,4 +23,5 @@ jobs:
                 with:
                     message: |
                         **Hello** [link](https://github.com/martinvy/python-utils)
+                    repo-token: ${{ secrets.GITHUB_TOKEN }}
                     repo-token-user-login: 'github-actions[bot]'
