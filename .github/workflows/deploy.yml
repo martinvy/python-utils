@@ -20,4 +20,5 @@ jobs:
                     echo ${{env.TEST_NAME}}
                     echo ${GITHUB_RUN_ID}
                     echo ${GITHUB_RUN_NUMBER}
-                    echo `${GITHUB_RUN_NUMBER } - 1`
+                    ((previous = ${GITHUB_RUN_NUMBER} - 1))
+                    echo $previous
