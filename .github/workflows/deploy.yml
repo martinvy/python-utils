@@ -15,4 +15,4 @@ jobs:
             -   name: Print
                 run: |
                     echo ${{env.GITHUB_RUN_NUMBER}}
-                    echo ${{env.GITHUB_RUN_NUMBER - 1}}
+                    echo `${{env.GITHUB_RUN_NUMBER}} - 1`
