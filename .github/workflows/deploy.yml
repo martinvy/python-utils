@@ -1,0 +1,18 @@
+name: Deploy
+on:
+    push:
+        branches:
+            - staging
+    workflow_dispatch:
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+        steps:
+            -   uses: actions/checkout@v3
+                with:
+                    ref: master
+
+            -   name: Print
+                run: |
+                    echo ${{env.GITHUB_RUN_NUMBER}}
+                    echo ${{env.GITHUB_RUN_NUMBER - 1}}
