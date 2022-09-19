@@ -5,6 +5,8 @@ on:
             - staging
             - master
     workflow_dispatch:
+env:
+    TEST_NAME: test/${GITHUB_RUN_ID}
 jobs:
     deploy:
         runs-on: ubuntu-latest
@@ -15,6 +17,7 @@ jobs:
 
             -   name: Print
                 run: |
+                    echo ${{env.TEST_NAME}}
                     echo ${GITHUB_RUN_ID}
                     echo ${GITHUB_RUN_NUMBER}
                     echo `${GITHUB_RUN_NUMBER } - 1`
