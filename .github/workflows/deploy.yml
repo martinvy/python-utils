@@ -21,4 +21,4 @@ jobs:
                     echo ${GITHUB_RUN_ID}
                     echo ${GITHUB_RUN_NUMBER}
                     ((previous = ${GITHUB_RUN_NUMBER} - 1))
-                    echo previous
+                    echo $previous
