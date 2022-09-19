@@ -15,7 +15,6 @@ jobs:
 
             -   name: Print
                 run: |
-                    echo ${env.GITHUB_RUN_ID}
                     echo ${GITHUB_RUN_ID}
                     echo ${GITHUB_RUN_NUMBER}
                     echo `${GITHUB_RUN_NUMBER } - 1`
