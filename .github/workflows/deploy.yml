@@ -21,3 +21,4 @@ jobs:
                     echo ${GITHUB_RUN_ID}
                     echo ${GITHUB_RUN_NUMBER}
                     echo `${GITHUB_RUN_NUMBER } - 1`
+                    echo ${{github.event.pull_request.labels}}
