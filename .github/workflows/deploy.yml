@@ -7,6 +7,7 @@ on:
     workflow_dispatch:
 env:
     TEST_NAME: test/${GITHUB_RUN_ID}
+    TEST_NAME_OTHER: ${{env.TEST_NAME}}/other
 jobs:
     deploy:
         runs-on: ubuntu-latest
