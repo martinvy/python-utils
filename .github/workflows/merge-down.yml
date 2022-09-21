@@ -1,0 +1,27 @@
+name: Merge down
+on:
+    push:
+        branches:
+            - master
+            - staging
+jobs:
+    merge-down:
+        runs-on: ubuntu-latest
+        steps:
+            -   uses: actions/checkout@master
+
+            -   name: Merge Master -> Staging
+                uses: devmasx/merge-branch@master
+                with:
+                    type: now
+                    from_branch: master
+                    target_branch: staging
+                    github_token: ${{ github.token }}
+
+            -   name: Merge Staging -> Dev
+                uses: devmasx/merge-branch@master
+                with:
+                    type: now
+                    from_branch: staging
+                    target_branch: dev
+                    github_token: ${{ github.token }}
