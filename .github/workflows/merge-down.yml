@@ -9,9 +9,9 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             -   uses: actions/checkout@master
-            -   uses: everlytic/branch-merge@1.1.2
 
             -   name: Merge Master -> Staging
+                uses: everlytic/branch-merge@1.1.2
                 with:
                     source_ref: master
                     target_branch: staging
@@ -19,6 +19,7 @@ jobs:
                     github_token: ${{ github.token }}
 
             -   name: Merge Staging -> Dev
+                uses: everlytic/branch-merge@1.1.2
                 with:
                     source_ref: staging
                     target_branch: dev
