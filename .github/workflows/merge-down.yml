@@ -9,21 +9,18 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             -   uses: actions/checkout@master
+            -   uses: everlytic/branch-merge@1.1.2
 
             -   name: Merge Master -> Staging
-                uses: devmasx/merge-branch@master
                 with:
-                    type: now
-                    from_branch: master
+                    source_ref: master
                     target_branch: staging
-                    message: Merge branch master to staging
+                    commit_message_template: Merge branch master to staging
                     github_token: ${{ github.token }}
 
             -   name: Merge Staging -> Dev
-                uses: devmasx/merge-branch@master
                 with:
-                    type: now
-                    from_branch: staging
+                    source_ref: staging
                     target_branch: dev
-                    message: Merge branch staging to dev
+                    commit_message_template: Merge branch staging to dev
                     github_token: ${{ github.token }}
