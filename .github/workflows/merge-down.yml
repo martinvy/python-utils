@@ -12,6 +12,8 @@ jobs:
 
             -   name: Merge Master -> Staging
                 uses: devmasx/merge-branch@master
+                env:
+                    INPUT_MESSAGE: Merge branch master to staging
                 with:
                     type: now
                     from_branch: master
@@ -20,6 +22,8 @@ jobs:
 
             -   name: Merge Staging -> Dev
                 uses: devmasx/merge-branch@master
+                env:
+                    INPUT_MESSAGE: Merge branch staging to dev
                 with:
                     type: now
                     from_branch: staging
