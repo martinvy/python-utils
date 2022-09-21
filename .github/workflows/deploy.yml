@@ -6,7 +6,10 @@ on:
             - master
     workflow_dispatch:
 env:
-    TEST_NAME: test/${GITHUB_RUN_ID}
+    TEST_NAME: test
+    TEST_NAME_ID: ${TEST_NAME}/${GITHUB_RUN_ID}
+    TEST_NAME_OTHER: ${TEST_NAME}/other
+    TEST_NAME_OTHER_2: ${TEST_NAME_OTHER}/2
 jobs:
     deploy:
         runs-on: ubuntu-latest
@@ -18,7 +21,11 @@ jobs:
             -   name: Print
                 run: |
                     echo ${{env.TEST_NAME}}
+                    echo ${{env.TEST_NAME_ID}}
+                    echo ${{env.TEST_NAME_OTHER}}
+                    echo ${{env.TEST_NAME_OTHER_2}}
                     echo ${GITHUB_RUN_ID}
                     echo ${GITHUB_RUN_NUMBER}
-                    echo `${GITHUB_RUN_NUMBER } - 1`
+                    ((previous = ${GITHUB_RUN_NUMBER} - 1))
+                    echo $previous
                     echo ${{github.event.pull_request.labels}}
