@@ -29,3 +29,5 @@ jobs:
                     ((previous = ${GITHUB_RUN_NUMBER} - 1))
                     echo $previous
                     echo ${{github.event.pull_request.labels}}
+                    echo ${GITHUB_SHA}
+                    git show ${GITHUB_SHA}
