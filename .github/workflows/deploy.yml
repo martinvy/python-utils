@@ -31,3 +31,5 @@ jobs:
                     echo ${{github.event.pull_request.labels}}
                     echo ${GITHUB_SHA}
                     git show ${GITHUB_SHA}
+                    echo "pretty"
+                    git show ${GITHUB_SHA} --pretty=format:%s
