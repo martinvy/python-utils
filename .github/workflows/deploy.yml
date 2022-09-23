@@ -29,7 +29,6 @@ jobs:
                     ((previous = ${GITHUB_RUN_NUMBER} - 1))
                     echo $previous
                     echo ${{github.event.pull_request.labels}}
-                    echo ${GITHUB_SHA}
-                    git show ${GITHUB_SHA}
-                    echo "pretty"
-                    git show ${GITHUB_SHA} --pretty=format:%s
+                    git show ${GITHUB_SHA} --no-patch --pretty=format:%s
+                    LAST_COMMIT_MESSAGE=`git show ${GITHUB_SHA} --no-patch --pretty=format:%s`
+                    RELEASE_TYPE=`echo $LAST_COMMIT_MESSAGE | grep -Eq "^Merge pull request #[0-9]+ from roihunter/(master|staging)$" && echo "feature" || echo "bugfix"`
