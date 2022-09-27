@@ -34,6 +34,5 @@ jobs:
                     RELEASE_TYPE=`echo $LAST_COMMIT_MESSAGE | grep -Eq "^Merge pull request #[0-9]+ from martinvy/(master|staging)$" && echo "feature" || echo "bugfix"`
                     echo ${RELEASE_TYPE}
                     echo "${{github.event.head_commit.message}}"
-                    
-                    RELEASE_TYPE_2 = `echo "${{github.event.head_commit.message}}" | grep -Eq "^Merge pull request #[0-9]+ from martinvy/staging" && echo "feature" || echo "bugfix"``
+                    RELEASE_TYPE_2 = `echo "${{github.event.head_commit.message}}" | grep -Eq "^Merge pull request #[0-9]+ from martinvy/staging" && echo "feature" || echo "bugfix"`
                     echo ${RELEASE_TYPE_2}
