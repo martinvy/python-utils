@@ -35,3 +35,6 @@ jobs:
                     echo ${RELEASE_TYPE}
                     echo "${{github.event.head_commit.message}}"
                     echo "${{github.event.commits[0].message}}"
+                    
+                    RELEASE_TYPE_2 = `echo "${{github.event.head_commit.message}}" | grep -Eq "^Merge pull request #[0-9]+ from martinvy/staging\n\nStaging -> Master$" && echo "feature" || echo "bugfix"``
+                    echo ${RELEASE_TYPE_2}
