@@ -30,8 +30,8 @@ jobs:
                     git show ${GITHUB_SHA} --no-patch --pretty=format:%s
                     LAST_COMMIT_MESSAGE=`git show ${GITHUB_SHA} --no-patch --pretty=format:%s`
                     echo ${LAST_COMMIT_MESSAGE}
-                    echo ""
+                    echo "---"
                     RELEASE_TYPE=`echo $LAST_COMMIT_MESSAGE | grep -Eq "^Merge pull request #[0-9]+ from martinvy/(master|staging)$" && echo "feature" || echo "bugfix"`
                     echo ${RELEASE_TYPE}
-                    echo ${{ github.event.push.head_commit }}
-                    echo ${{ github.event.head_commit.message }}
+                    echo ${{github.event.head_commit.message}}
+                    echo ${{github.event.commits[0].message}}
